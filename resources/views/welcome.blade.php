@@ -79,15 +79,19 @@
 
             <div class="content">
                 <div class="title m-b-md">
+<<<<<<< HEAD
                     view
+=======
+                    Hello Wrold
+>>>>>>> develop
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="#">Where</a>
+                    <a href="#">are</a>
+                    <a href="#">you</a>
+                    <a href="#">going</a>
+                    <a href="#">now?</a>
                 </div>
             </div>
         </div>

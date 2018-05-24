@@ -11,18 +11,18 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+  /*  public function __construct()
     {
         $this->middleware('auth');
     }
-
+	*/
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
-     */
+     [C* @return \Illuminate\Http\Response
+RR    */
     public function index()
     {
-        return view('/admin/home');
+        return view('home');
     }
 }
