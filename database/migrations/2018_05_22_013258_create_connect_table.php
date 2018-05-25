@@ -17,6 +17,7 @@ class CreateConnectTable extends Migration
             $table->increments('id');
             $table->integer('stu_id');
             $table->integer('teacher_id');
+            $table->boolean('approve');
             $table->timestamps();
         });
     }
