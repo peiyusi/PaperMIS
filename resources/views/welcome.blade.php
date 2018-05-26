@@ -79,19 +79,15 @@
 
             <div class="content">
                 <div class="title m-b-md">
-<<<<<<< HEAD
-                    view
-=======
                     Hello Wrold
->>>>>>> develop
                 </div>
 
                 <div class="links">
-                    <a href="#">Where</a>
-                    <a href="#">are</a>
+                    <a href="#">Are</a>
                     <a href="#">you</a>
-                    <a href="#">going</a>
-                    <a href="#">now?</a>
+                    <a href="#">ready</a>
+                    <a href="#">for</a>
+                    <a href="#">it?</a>
                 </div>
             </div>
         </div>

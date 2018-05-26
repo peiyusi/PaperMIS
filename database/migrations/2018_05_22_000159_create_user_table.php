@@ -17,9 +17,9 @@ class CreateUserTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('password');
-            $table->string('email');
-            $table->string('telephone');
-            $table->integer('identy');
+            $table->string('email')->unique( );
+          //$table->string('telephone');
+            $table->integer('identy')->nullable( );
             $table->timestamps();
         });
     }

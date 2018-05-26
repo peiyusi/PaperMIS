@@ -11,35 +11,22 @@
 |
 */
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 //Route::get('/', function () {
 //    return view('welcome');
 //});
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
-=======
-Route::get('view', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('user', 'admin\UserController@index');
->>>>>>> branch
-=======
+//Route::get('user', 'admin\UserController@index');
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin' ],function(){
 	Route::get('/home','HomeController@index');
+	Route::get('/form_infor','TeacherController@show_form1');
+	Route::get('/form_line','TeacherController@show_form2');
+	Route::get('/infor_list','TeacherController@show_list');
 });
->>>>>>> develop
