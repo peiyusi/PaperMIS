@@ -23,3 +23,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin' ],function(){
 	Route::get('/home','HomeController@index');
 });
+
+Route::get('student', 'Admin\StudentController@index');
