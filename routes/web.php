@@ -25,3 +25,5 @@ Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin'
 });
 
 Route::get('student', 'Admin\StudentController@index');
+Route::get('teacher', 'Admin\TeacherController@index');
+
