@@ -7,12 +7,12 @@
             </div>
             <ol class="am-breadcrumb">
                 <li><a href="#" class="am-icon-home">首页</a></li>
-                <li class="am-active">用户资料</li>
+                <li class="am-active">用户信息</li>
             </ol>
             <div class="tpl-portlet-components">
                 <div class="portlet-title">
                     <div class="caption font-green bold">
-                        详细资料
+                        详细信息
                     </div>
                     <div class="tpl-portlet-input tpl-fz-ml">
                         <div class="portlet-input input-small input-inline">
@@ -32,7 +32,7 @@
                         <div class="am-u-sm-12 am-u-md-9">
                             <form class="am-form am-form-horizontal">
                                <div class="am-form-group">
-                                    <label for="user-email" class="am-u-sm-3 am-form-label" >电子邮件 / Email</label>
+                                    <label for="user-email" class="am-u-sm-3 am-form-label" >电子邮箱 / Email</label>
                                     <div class="am-u-sm-9">
                                         <input type="email" id="user-email" readonly="" autocomplete="off" disable value="">
                                     </div>
@@ -41,7 +41,7 @@
                                 <div class="am-form-group">
                                     <label for="user-phone" class="am-u-sm-3 am-form-label">电话 / Telephone</label>
                                     <div class="am-u-sm-9">
-                                        <input type="tel" id="user-phone" readonly="" autocompletse="off" disable value="">
+                                        <input type="tel" id="user-phone" placeholder="电话 / Telephone" value="">
                                     </div>
                                 </div>
 

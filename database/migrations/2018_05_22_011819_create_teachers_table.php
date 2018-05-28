@@ -17,6 +17,7 @@ class CreateTeachersTable extends Migration
 			$table->increments('id');
 			$table->integer('user_id');
 			$table->string('name')->nullable();
+			$table->string('telephone')->nullable();
 			$table->string('pro_title')->nullable();
             $table->timestamps();
         });
