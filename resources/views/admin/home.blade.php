@@ -1,6 +1,6 @@
-@extends('layouts.left')
+@extends('layouts.head')
 
-@section('left')
+@section('action')
 
 
 <body data-type="index">

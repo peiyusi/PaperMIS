@@ -8,7 +8,7 @@
 
         <div class="tpl-left-nav tpl-left-nav-hover">
             <div class="tpl-left-nav-title">
-                Amaze UI 列表
+                学生管理
             </div>
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
@@ -69,7 +69,7 @@
                     <li class="tpl-left-nav-item">
                         <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-wpforms"></i>
-                            <span>表单</span>
+                            <span>选择学生</span>
                             <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
                         </a>
                         <ul class="tpl-left-nav-sub-menu" style="display: block;">
@@ -89,16 +89,14 @@
                     </li>
 
                     <li class="tpl-left-nav-item">
-                        <a href="{{route('login')}}" class="nav-link tpl-left-nav-link-list">
+                        <a href="login.html" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-key"></i>
-                            <span>登录</span>
+                            <span>退出登录</span>
 
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
-        
-		@yield('left')
-
-		@endsection	
+        @yield('left')
+        @endsection
