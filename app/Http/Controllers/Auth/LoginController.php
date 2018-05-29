@@ -24,7 +24,8 @@ class LoginController extends Controller
 
 	public function index()
 	{
-		return view('auth/login');
+		echo "nihoa";
+		//return view('auth/login');
 	}
 
 
@@ -33,7 +34,7 @@ class LoginController extends Controller
 	 *
 	 * @var string
 	 */
-	protected $redirectTo = '/admin';
+	protected $redirectTo = '/';// '/admin'
 
 
 

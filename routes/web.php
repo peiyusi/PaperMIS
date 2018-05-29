@@ -14,15 +14,15 @@
 
 Auth::routes();
 
-Route::get('/', function () {
-	return view('welcome');
-});
+//Route::get('/', function () {
+//	return view('welcome');
+//});
 //Route::get('/home', 'Auth\LoginController@login_next');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('logout','Auth\LoginController@logout');
 Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin' ],function(){
-	Route::get('/','HomeController@index');
-	Route::get('/teacher/form_infor','TeacherController@show_form1');
+	//Route::get('/','..\HomeController@index');
+	Route::get('teacher/form_infor','TeacherController@show_form1');
 	Route::get('/teacher/form_line','TeacherController@show_form2');
 	Route::get('/teacher/infor_list','TeacherController@show_list');
 	Route::get('/student/form_infor','StudentController@show_form1');
@@ -32,3 +32,11 @@ Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin'
 
 	//Route::get('logout','Auth\LoginController@logout');
 });
+/*
+Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin/teacher' ],function(){
+	Route::get('/','..\HomeController@index');
+	Route::get('/teacher/form_infor','TeacherController@show_form1');
+	Route::get('/teacher/form_line','TeacherController@show_form2');
+	Route::get('/teacher/infor_list','TeacherController@show_list');
+});	
+ */
