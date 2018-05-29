@@ -1,6 +1,6 @@
-@extends('layouts.left')
+@extends('layouts.lefts')
 
-@section('left')
+@section('action')
        <div class="tpl-content-wrapper">
             <div class="tpl-content-page-title">
                 学生论文管理系统
