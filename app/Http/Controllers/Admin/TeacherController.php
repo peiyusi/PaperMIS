@@ -12,15 +12,15 @@ class TeacherController extends Controller
 		return view('teacher/TeacherInformation');
 	}
 	public function show_form1(){
-		return view('admin/form_infor');
+		return view('teacher/form_infor');
 	}
 
 	public function show_form2(){
-		return view('admin/form_line');
+		return view('/teacher/form_line');
 	}
 
 	public function show_list(){
-		return view('admin/infor_list');
+		return view('teacher/infor_list');
 	}
 
 

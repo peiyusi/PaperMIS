@@ -68,21 +68,21 @@
                         </a>
                     </li>
                     <li class="tpl-left-nav-item">
-                        <a href="{{ url('admin/student/form_line') }}" class="nav-link tpl-left-nav-link-list">
+                        <a href="{{ url('admin/teacher/form_line') }}" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-bar-chart"></i>
                             <span>数据表</span>
                         </a>
                     </li>
 
                     <li class="tpl-left-nav-item">
-                        <a href="{{ url('admin/student/form_infor') }}" class="nav-link tpl-left-nav-link-list">
+                        <a href="{{ url('admin/teacher/form_infor') }}" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-table"></i>
                             <span>表格</span>
 						</a>
                     </li>
 
                     <li class="tpl-left-nav-item">
-                        <a href="{{ url('admin/student/infor_list') }}" class="nav-link tpl-left-nav-link-list">
+                        <a href="{{ url('admin/teacher/infor_list') }}" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-wpforms"></i>
                             <span>表单</span>
 
