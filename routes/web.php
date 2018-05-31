@@ -22,6 +22,7 @@ Auth::routes();
 //	return view('welcome');
 //});
 //Route::get('/home', 'Auth\LoginController@login_next');
+//Route::get('/', 'Auth\LoginController@index');
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('logout','Auth\LoginController@logout');
@@ -41,7 +42,7 @@ Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin'
 Route::get('student', 'Admin\StudentController@index');
 Route::get('teacher', 'Admin\TeacherController@index');
 Route::any('teacher/save', ['uses' => 'Admin\TeacherController@save']);
-Route::any('student/create', ['uses'=>'Admin\StudentController@create']);
+Route::any('student/create', ['uses'=>'HomeController@create']);
 
 /*
 Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin/teacher' ],function(){

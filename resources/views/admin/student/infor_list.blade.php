@@ -1,7 +1,6 @@
 @extends('layouts.head')
 @section('action')
 <body data-type="generalComponents">
-
         <div class="tpl-content-wrapper">
             <div class="tpl-content-page-title">
                 Amaze UI 文字列表

@@ -3,6 +3,7 @@
 @section('action')
 
 
+{{$uid}}
 <body data-type="index">
 
         <div class="tpl-content-wrapper">

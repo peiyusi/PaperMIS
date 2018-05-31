@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
 		for($i = 0; $i < 10; $i++) {
 			\App\User::create([
 				'email' => '12345'.$i.'@qq.com',
-				'password' => Hash(123456),
+				'password' => Hash::make(123456),
 				'identy' => '1',
 			]);
 		}

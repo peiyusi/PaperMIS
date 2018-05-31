@@ -77,7 +77,7 @@
                     <li class="tpl-left-nav-item">
                         <a href="{{ url('admin/teacher/form_infor') }}" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-table"></i>
-                            <span>表格</span>
+                            <span>资料</span>
 						</a>
                     </li>
 

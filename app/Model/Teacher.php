@@ -8,8 +8,8 @@ class Teacher extends Model
 {
    public $timestamps = true;
 
-    public function getDateFormat() {
-        return time();
-
-    }   
+//    public function getDateFormat() {
+//        return time();
+//
+//    }   
 }
