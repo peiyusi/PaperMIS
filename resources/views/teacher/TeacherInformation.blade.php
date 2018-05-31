@@ -30,38 +30,39 @@
 
 
                         <div class="am-u-sm-12 am-u-md-9">
-                            <form class="am-form am-form-horizontal">
+                            <form class="am-form am-form-horizontal" method="post" action="{{ url('teacher/save')}}">
+								{{ csrf_field() }}
                                <div class="am-form-group">
-                                    <label for="user-email" class="am-u-sm-3 am-form-label" >电子邮箱 / Email</label>
+                                    <label for="user-email" class="am-u-sm-3 am-form-label" >电子邮箱/ Email</label>
                                     <div class="am-u-sm-9">
                                         <input type="email" id="user-email" readonly="" autocomplete="off" disable value="">
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="user-phone" class="am-u-sm-3 am-form-label">电话 / Telephone</label>
+                                    <label for="user-phone" class="am-u-sm-3 am-form-label">电话/ Telephone</label>
                                     <div class="am-u-sm-9">
-                                        <input type="tel" id="user-phone" placeholder="电话 / Telephone" value="">
+                                        <input type="tel" id="user-phone" name="Teacher[telephone]" placeholder="电话/ Telephone" value="">
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
-                                    <label for="user-name" class="am-u-sm-3 am-form-label">真实姓名 / Name</label>
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">真实姓名/ Name</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" placeholder="真实姓名 / Name">
+                                        <input type="text" id="user-name" name="Teacher[name]" placeholder="真实姓名 / Name">
                                     </div>
                                 </div>
                                 
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-u-sm-3 am-form-label">职称 /  professional title</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="pro-title" placeholder="职称 /  professional title">
+                                        <input type="text" id="pro-title" name="Teacher[pro_title]" placeholder="职称 /  professional title">
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
                                     <div class="am-u-sm-9 am-u-sm-push-3">
-                                        <input type="submit" class="am-btn am-btn-primary" value="保存修改"></input>
+                                        <button type="submit" class="am-btn am-btn-primary">保持修改</button>
                                 </div>
                             </form>
                         </div>
