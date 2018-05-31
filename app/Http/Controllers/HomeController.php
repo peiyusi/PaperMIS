@@ -21,18 +21,30 @@ class HomeController extends Controller
 	 *
 	 [C* @return \Illuminate\Http\Response
 	 RR    */
-	public function index()
+	public function index(Request $request)
 	{
-		//return view('home');
-		$User=new User;
-		      //  foreach($User as $user){
-				///	
-				//	         echo $user;
-		         //}
+		$email = $request->user()->email;
+		$users = User::all();
+		foreach ($users as $user){
+			if($user->email == $email){
+				if( $user->identy==1){
+					//echo "学生";
+					return view('/admin/student/home');
+				}else{
+					//echo "老师";
+					return view('/admin/teacher/home');
+				
+				}
+			}
+		}
+
+
+
+	/*	$User=new User;
 		if($User->identy==1){
 			return view('/admin/teacher/home');
 		}else{
 			return view('/admin/student/home');
-		}
+	}*/
 	}
 }
