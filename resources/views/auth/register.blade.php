@@ -11,7 +11,7 @@
 					<form method="POST" action="{{ route('register') }}">
 						@csrf
 
-						<div class="form-group row">
+					<!--	<div class="form-group row">
 							<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('昵称') }}</label>
 
 							<div class="col-md-6">
@@ -24,7 +24,7 @@
 								@endif
 							</div>
 						</div>
-
+						-->			
 						<div class="form-group row">
 							<label for="email" class="col-md-4 col-form-label text-md-right">{{ __('邮箱地址') }}</label>
 

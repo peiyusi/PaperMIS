@@ -37,7 +37,7 @@
 
                 <li class="am-dropdown" data-am-dropdown data-am-dropdown-toggle>
                     <a class="am-dropdown-toggle tpl-header-list-link" href="{{ asset('javascript:;')}}">
-                        <span class="tpl-header-list-user-nick">{{ Auth::user()->name }}</span><span class="tpl-header-list-user-ico"> <img src="{{ asset('assets/img/user01.png')}}"></span>
+                        <span class="tpl-header-list-user-nick">{{ Auth::user()->email }}</span><span class="tpl-header-list-user-ico"> <img src="{{ asset('assets/img/user01.png')}}"></span>
                     </a>
                     <ul class="am-dropdown-content">
                         <li><a href="#"><span class="am-icon-bell-o"></span> 资料</a></li>
@@ -62,7 +62,7 @@
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
                     <li class="tpl-left-nav-item">
-                        <a href="{{ url('admin/home') }}" class="nav-link active">
+                        <a href="{{ url('admin/student/home') }}" class="nav-link active">
                             <i class="am-icon-home"></i>
                             <span>首页</span>
                         </a>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Student;
+use App\Teacher;
 class HomeController extends Controller
 {
 	/**
@@ -11,11 +13,11 @@ class HomeController extends Controller
 	 *
 	 * @return void
 	 */
-  /*  public function __construct()
+    public function __construct()
 	{
 		$this->middleware('auth');
 	}
-   */
+   
 	/**
 	 * Show the application dashboard.
 	 *
@@ -29,10 +31,10 @@ class HomeController extends Controller
 			if($user->email == $email){
 				if( $user->identy==1){
 					//echo "学生";
-					return view('/admin/student/home');
+					return view('/admin/student/home')->withStudents(Student::all());
 				}else{
 					//echo "老师";
-					return view('/admin/teacher/home');
+					return view('/admin/teacher/home')->withTeachers(Teacher::all());
 				
 				}
 			}
