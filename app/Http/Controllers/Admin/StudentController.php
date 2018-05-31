@@ -3,17 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Model\Student;
+use App\Model\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class StudentController extends Controller
 {
 	public function index() {
-		//Student::
-		$student = new Student();
-		$student->user_id = 
-		return view('student/studentInformation');
+		return view('student/studentInformation')->withUsers(User::all());
 	}
+
     public function show_form1(){
 		return view('admin/student/form_infor');
 	}
@@ -32,7 +31,7 @@ class StudentController extends Controller
 	//	var_dump($data);
 		
 		$student = new Student();
-		$student->user_id = ;
+		//$student->user_id = $request->user()->id;
 		$student->name = $data['name'];
 		$student->telephone = $data['telephone'];
 		$student->class = $data['class'];
@@ -61,5 +60,19 @@ class StudentController extends Controller
 //		   return view('student.create', [
 //               'student' => $student,
 //           ]);
-	}
+		}
+//	public function store(Request $request){
+//		//$this->validata($request,[	]);
+//		
+//		$users = User::all();
+//		foreach($users as $user){
+//		}
+//		$student = new Student;
+//		$student -> user_id = $request->user()->id;
+//		$student->name = $request->get('');
+//		$student->sex = $request->get('');
+//		$student->class = $request->get('');
+//		$student->Student_number = $request->get('');
+//		$student->paper = $request->get('');
+//	}
 }

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\User;
+use App\Model\Student;
+use App\Model\Teacher;
+use Illuminate\Support\Facades\View;
+
 class HomeController extends Controller
 {
 	/**
@@ -11,40 +15,51 @@ class HomeController extends Controller
 	 *
 	 * @return void
 	 */
-  /*  public function __construct()
+	public $uid;
+
+    public function __construct()
 	{
 		$this->middleware('auth');
 	}
-   */
-	/**
-	 * Show the application dashboard.
-	 *
-	 [C* @return \Illuminate\Http\Response
-	 RR    */
+   
 	public function index(Request $request)
 	{
 		$email = $request->user()->email;
-		$users = User::all();
-		foreach ($users as $user){
-			if($user->email == $email){
-				if( $user->identy==1){
-					//echo "瀛︾敓";
-					return view('/admin/student/home');
-				}else{
-					//echo "鑰佸笀";
-					return view('/admin/teacher/home');
-				
-				}
+
+		$this->uid = $request->user()->id; //获取登陆用户的userid
+
+		$identy = $request->user()->identy;//获取登录用户的身份
+		if($identy == 1) {
+			$flag = Student::where('user_id', $this->uid)->first(); //$flag判断是否已经在学生表中创建了对应列			
+			if (!$flag) {
+				$student = new Student();
+				$student->user_id = $this->uid;
+				$student->save();
+			}
+		} else {
+			$flag = Teacher::where('user_id', $this->uid)->first(); //$flag判断是否已经在教师表中创建了对应列
+			if (!$flag) {
+				$teacher = new Teacher();
+				$teacher->user_id = $this->uid;
+				$teacher->save();
 			}
 		}
 
-
-
-	/*	$User=new User;
-		if($User->identy==1){
-			return view('/admin/teacher/home');
-		}else{
-			return view('/admin/student/home');
-	}*/
+		$users = User::all();
+		//判断获取的电子邮件是不是users表中的，如果有再判断身份是什么
+		foreach ($users as $user) {
+			if ($user->email == $email) {
+				if ( $user->identy==1) {
+					return view('/admin/student/form_infor')->with('uid', $this->uid); //向视图传递userid
+				} else{
+					return view('/admin/teacher/form_infor')->with('uid', $this->uid);
+				}
+			}
+		}
 	}
-}
+
+	
+
+
+
+}	

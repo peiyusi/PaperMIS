@@ -26,17 +26,28 @@ class TeacherController extends Controller
 	//修改消息
 	public function save(Request $request) {
 		$data = $request->input('Teacher');	
-		//dd($data);
-		$teacher = new teacher();
-		$teacher->name = $data['name'];
-		$teacher->telephone = $data['telephone'];
-		$teacher->pro_title = $data['pro_title'];
+	//	dd($data);
 
-		if($teacher->save()) {
-			return view('teacher.TeacherInformation');
+		$num = Teacher::where('user_id', $data['user_id'])->update(
+			['name' => $data['name']],
+			['telephone' => $data['telephone']],
+			['pro_title' => $data['pro_title']]
+		);
+		if($num == 1) {
+			return view('admin.teacher.form_infor');
 		} else {
-			return redirect()->back();
+			echo '添加失败';
 		}
+	//	$teacher = new teacher();
+	//	$teacher->name = $data['name'];
+	//	$teacher->telephone = $data['telephone'];
+	//	$teacher->pro_title = $data['pro_title'];
+
+	//	if($teacher->save()) {
+	//		return view('teacher.TeacherInformation');
+	//	} else {
+	//		return redirect()->back();
+	//	}
 	}
 
 }
