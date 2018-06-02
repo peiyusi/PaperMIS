@@ -3,12 +3,11 @@
 @section('action')
 
 
-{{$uid}}
 <body data-type="index">
 
         <div class="tpl-content-wrapper">
             <div class="tpl-content-page-title">
-                Amaze UI 首页组件
+               论文管理系统 
             </div>
             <ol class="am-breadcrumb">
                 <li><a href="#" class="am-icon-home">首页</a></li>

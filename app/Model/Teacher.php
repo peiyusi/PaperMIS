@@ -8,8 +8,8 @@ class Teacher extends Model
 {
    public $timestamps = true;
 
-//    public function getDateFormat() {
-//        return time();
-//
-//    }   
+    public function students() 
+    {
+        return $this->belongsToMany('App\Model\Student', 'connect', 'teacher_id', 'stu_id')->withPivot('approve');
+    } 
 }

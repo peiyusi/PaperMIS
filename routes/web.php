@@ -31,12 +31,14 @@ Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin'
 	Route::get('teacher/form_infor','TeacherController@show_form1');
 	Route::get('/teacher/form_line','TeacherController@show_form2');
 	Route::get('/teacher/infor_list','TeacherController@show_list');
+    Route::post('/teacher/paperJudge', 'TeacherController@paperJudge');
+   // Route::resource('connect', 'TeacherController');
+
 	Route::get('student/form_infor','StudentController@show_form1');
 	Route::get('/student/form_line','StudentController@show_form2');
 	Route::get('/student/infor_list','StudentController@show_list');
+	Route::post('/student/selectTeacher','StudentController@selectTeacher');
 
-
-	//Route::get('logout','Auth\LoginController@logout');
 });
 
 Route::get('student', 'Admin\StudentController@index');

@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Model\Student;
+use App\Model\Teacher;
 use App\Model\User;
+use App\Model\Connect;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 class StudentController extends Controller
@@ -22,7 +27,7 @@ class StudentController extends Controller
 	}
 
 	public function show_list(){
-		return view('admin/student/infor_list');
+		return view('admin/student/infor_list')->withTeachers(Teacher::all());
 	}
 	
 	//添加信息到数据库的学生表中
@@ -45,34 +50,23 @@ class StudentController extends Controller
 			return redirect()->back();
 		}
 
-            //$student = new Student();
+	}
 
-//		if ($request->isMethod('POST')) {
-//		      $data = $request->input('Student');
-//             if (Student::create($data)) {
-//                 // return view('student.studentInformation')->with('success', '添加成功！')返回提示信息
-//				 echo '添加成功';
-//				
-//              }else {
-//                  return redirect()->back();
-//              }
-//           }
-//		   return view('student.create', [
-//               'student' => $student,
-//           ]);
-		}
-//	public function store(Request $request){
-//		//$this->validata($request,[	]);
-//		
-//		$users = User::all();
-//		foreach($users as $user){
-//		}
-//		$student = new Student;
-//		$student -> user_id = $request->user()->id;
-//		$student->name = $request->get('');
-//		$student->sex = $request->get('');
-//		$student->class = $request->get('');
-//		$student->Student_number = $request->get('');
-//		$student->paper = $request->get('');
-//	}
+    public function selectTeacher() {
+        $tid = Input::get('tid');
+        $sid = Student::where('user_id', Auth::id())->first()->id;
+        
+        $flag = Connect::where('teacher_id', $tid)
+                         ->where('stu_id', $sid)
+                         ->first();
+        if (!$flag) {
+              $connect = new Connect();
+              $connect->stu_id = $sid;
+              $connect->teacher_id = $tid;
+              $connect->approve = 0;
+              $connect->save();
+        }
+            
+        return view('admin/student/home')->with('message', '成功选择!');
+    }
 }
