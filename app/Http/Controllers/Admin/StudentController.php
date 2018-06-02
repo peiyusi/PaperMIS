@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Model\Student;
 use App\User;
-use Illuminate\Http\Request;
-use Illuminate\support\Facades\Auth;
 use App\Model\Teacher;
 use App\Model\Connect;
 
@@ -66,7 +64,7 @@ class StudentController extends Controller
 
 				$data = $request->input('Student');
 				
-				$num = Student::where('user_id', $id)->first()->update($data); //对应的Model应该要开启批量赋值 
+				$num = Student::where('user_id', $id)->update($data); //对应的Model应该要开启批量赋值 
 
 				if($num == 1) {
 					return view('admin.student.form_infor', [
@@ -83,7 +81,7 @@ class StudentController extends Controller
 			 'user' => $user
 			]);
 		
-	}
+	
 	}
 
     public function selectTeacher() {
