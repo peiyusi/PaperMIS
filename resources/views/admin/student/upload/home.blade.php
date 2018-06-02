@@ -9,7 +9,7 @@
             <div class="am-form-group am-form-file">
                   <button type="button" class="am-btn am-btn-success am-round">
                   <i class="am-icon-plus"></i>
-                  上传
+                  选择 
                   </button>
                   <input type="file" name="paper">
             </div>

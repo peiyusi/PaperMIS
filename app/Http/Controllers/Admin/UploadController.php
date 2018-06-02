@@ -27,6 +27,8 @@ class UploadController extends Controller {
 
         Student::where('id', $sid)
                 ->update(['paper' => $filename]);
+
+        return view('admin/student/upload/home')->with('filename', $filename);;
     }
         
     public function create(){
