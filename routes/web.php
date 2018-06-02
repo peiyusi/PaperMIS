@@ -28,10 +28,12 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('logout','Auth\LoginController@logout');
 Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin' ],function(){
 	//Route::get('/','..\HomeController@index');
-	Route::get('teacher/form_infor','TeacherController@show_form1');
+	Route::any('/teacher/form_infor',['uses'=>'TeacherController@save']);
 	Route::get('/teacher/form_line','TeacherController@show_form2');
 	Route::get('/teacher/infor_list','TeacherController@show_list');
-	Route::get('student/form_infor','StudentController@show_form1');
+
+	Route::any('/student/form_infor',['uses'=>'StudentController@create']);
+
 	Route::get('/student/form_line','StudentController@show_form2');
 	Route::get('/student/infor_list','StudentController@show_list');
 
@@ -42,7 +44,6 @@ Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin'
 Route::get('student', 'Admin\StudentController@index');
 Route::get('teacher', 'Admin\TeacherController@index');
 Route::any('teacher/save', ['uses' => 'Admin\TeacherController@save']);
-Route::any('student/create', ['uses'=>'HomeController@create']);
 
 /*
 Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin/teacher' ],function(){

@@ -30,36 +30,33 @@
 
 
                         <div class="am-u-sm-12 am-u-md-9">
-                            <form class="am-form am-form-horizontal" method="post" action="{{ url('teacher/save')}}">
+                            <form class="am-form am-form-horizontal" method="post" action="">
 								{{ csrf_field() }}
                                <div class="am-form-group">
                                     <label for="user-email" class="am-u-sm-3 am-form-label" >电子邮箱/ Email</label>
                                     <div class="am-u-sm-9">
-                                        <input type="email" id="user-email" readonly="" autocomplete="off" disable value="">
+                                        <input type="email" id="user-email" readonly="" autocomplete="off" disable value="{{ $user->email}}">
                                     </div>
                                 </div>
 								
-								
-                                <input type="user_id" id="user_id" name="Teacher[user_id]" value="{{$uid}}" style="display:none">
-
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-u-sm-3 am-form-label">真实姓名/ Name</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="user-name" name="Teacher[name]" placeholder="真实姓名 / Name">
+                                        <input type="text" id="user-name" name="Teacher[name]" value="{{ old('Teacher')['name'] ? old('Teacher')['name'] : $teacher->name}}" placeholder="真实姓名 / Name">
                                     </div>
                                 </div>
 
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-u-sm-3 am-form-label">电话 / Telephone</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="telephone" name="Teacher[telephone]" placeholder="电话 / Telephone">
+										<input type="text" id="telephone" name="Teacher[telephone]" value="{{ old('Teacher')['telephone'] ? old('Teacher')['telephone'] : $teacher->telephone}}" placeholder="电话 / Telephone">
 									</div>
 								</div>
 
                                 <div class="am-form-group">
                                     <label for="user-name" class="am-u-sm-3 am-form-label">职称/  professional title</label>
                                     <div class="am-u-sm-9">
-                                        <input type="text" id="pro-title" name="Teacher[pro_title]" placeholder="职称 /  professional title">
+                                        <input type="text" id="pro-title" name="Teacher[pro_title]" value="{{ old('Teacher')['pro_title'] ? old('Teacher')['pro_title'] : $teacher->pro_title}}"placeholder="职称 /  professional title">
                                     </div>
                                 </div>
 

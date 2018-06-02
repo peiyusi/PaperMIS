@@ -40,7 +40,7 @@
                         <span class="tpl-header-list-user-nick">{{ Auth::user()->emsil }}</span><span class="tpl-header-list-user-ico"> <img src="{{ asset('assets/img/user01.png')}}"></span>
                     </a>
                     <ul class="am-dropdown-content">
-                        <li><a href="#"><span class="am-icon-bell-o"></span> 资料</a></li>
+                        <li><a href="{{ url('admin/teacher/form_infor') }}"><span class="am-icon-bell-o"></span> 资料</a></li>
                         <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
 						<li><a href="{{ url('logout') }}" >
 <span class="am-icon-power-off"></span>{{ __(' 退出') }}</a></li>

@@ -40,7 +40,7 @@
                         <span class="tpl-header-list-user-nick">{{ Auth::user()->email }}</span><span class="tpl-header-list-user-ico"> <img src="{{ asset('assets/img/user01.png')}}"></span>
                     </a>
                     <ul class="am-dropdown-content">
-                        <li><a href="{{ url('admin/student/form_line') }}"><span class="am-icon-bell-o"></span> 资料</a></li>
+                        <li><a href="{{ url('admin/student/form_infor') }}"><span class="am-icon-bell-o"></span> 资料</a></li>
                         <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
 						<li><a href="{{ url('logout') }}" >
 <span class="am-icon-power-off"></span>{{ __(' 退出') }}</a></li>
@@ -62,27 +62,35 @@
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
                     <li class="tpl-left-nav-item">
-                        <a href="{{ url('admin/student/home') }}" class="nav-link active">
+						<a href="{{ url('admin/student/home') }}" class="nav-link active"
+						{{ Request::getPathInfo() == '/admin/student/home' ? 'active' : ''}}	
+						>
                             <i class="am-icon-home"></i>
                             <span>首页</span>
                         </a>
                     </li>
                     <li class="tpl-left-nav-item">
-                        <a href="{{ url('admin/student/form_line') }}" class="nav-link tpl-left-nav-link-list">
+						<a href="{{ url('admin/student/form_line') }}" class="nav-link tpl-left-nav-link-list"
+						{{ Request::getPathInfo() == '/admin/student/form_line' ? 'active' : ''}}
+						>
                             <i class="am-icon-bar-chart"></i>
                             <span>数据表</span>
                         </a>
                     </li>
 
                     <li class="tpl-left-nav-item">
-                        <a href="{{ url('admin/student/form_infor') }}" class="nav-link tpl-left-nav-link-list">
+						<a href="{{ url('admin/student/form_infor') }}" class="nav-link tpl-left-nav-link-list"
+						{{ Request::getPathInfo() == '/admin/student/form_infor' ? 'active' : ''}}
+						>
                             <i class="am-icon-table"></i>
                             <span>资料</span>
 						</a>
                     </li>
 
                     <li class="tpl-left-nav-item">
-                        <a href="{{ url('admin/student/infor_list') }}" class="nav-link tpl-left-nav-link-list">
+						<a href="{{ url('admin/student/infor_list') }}" class="nav-link tpl-left-nav-link-list"
+						{{ Request::getPathInfo() == '/admin/student/infor_list' ? 'active' : ''}}
+						>
                             <i class="am-icon-wpforms"></i>
                             <span>表单</span>
 
