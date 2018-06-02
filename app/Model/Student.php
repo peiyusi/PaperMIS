@@ -22,4 +22,9 @@ class Student extends Model
 		}
 		return $arr;
 	}
+    
+    public function teachers() 
+    {
+        return $this->belongsToMany('App\Model\Teacher', 'connect', 'stu_id', 'teacher_id');
+    }    
 }

@@ -11,4 +11,8 @@ class Teacher extends Model
 	protected $table = 'teachers';
 
 	protected $fillable = ['name', 'telephone', 'pro_title'];
+    public function students() 
+    {
+        return $this->belongsToMany('App\Model\Student', 'connect', 'teacher_id', 'stu_id')->withPivot('approve');
+    } 
 }

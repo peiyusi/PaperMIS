@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\Connect;
 use App\Model\Teacher;
 use App\User;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class TeacherController extends Controller
 {
+
 	public function index() {
 		return view('admin.teacher.form_infor');
 	}
@@ -22,7 +26,9 @@ class TeacherController extends Controller
 	}
 
 	public function show_list(){
-		return view('admin/teacher/infor_list');
+        $teacher = Teacher::where('user_id', Auth::id())->first();
+        
+        return view('admin/teacher/infor_list')->withStudents($teacher->students);
 	}
 	
 	//添加老师信息
@@ -30,7 +36,6 @@ class TeacherController extends Controller
 		$id = Auth::id();
 		
 		$teacher = Teacher::where('user_id', $id)->first();
-		($teacher);
 		$user = User::find($id);
 		if($request->isMethod('POST')) {
             //判断是否符合输入要求
@@ -63,5 +68,18 @@ class TeacherController extends Controller
 			'user' => $user
 		]);
 	}
+    //论文审核
+    public function paperJudge() {
+        
+        $sid = Input::get('sid');
+        
+        $tid = Teacher::where('user_id', Auth::id())->first()->id;
+        Connect::where('stu_id', $sid)
+                ->where('teacher_id', $tid)
+                ->update(['approve' => 1]);
+
+        return view('admin/teacher/home');
+    }
 
 }
+

@@ -6,6 +6,12 @@ use App\Model\Student;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\Auth;
+use App\Model\Teacher;
+use App\Model\Connect;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 
@@ -33,14 +39,16 @@ class StudentController extends Controller
 	}
 
 	public function show_list(){
-		return view('admin/student/infor_list');
+		return view('admin/student/infor_list')->withTeachers(Teacher::all());
 	}
 	
 	//添加信息到数据库的学生表中
 	public function create(Request $request) {
 		$id = Auth::id();
+
 		$student = Student::where('user_id', $id)->first();
 		$user = User::find($id);
+
 		if($request->isMethod('POST')) {
 			//判断是否符合输入要求
 			$validator = \Validator::make($request->input(), [
@@ -57,7 +65,6 @@ class StudentController extends Controller
 			} else {
 
 				$data = $request->input('Student');
-//				dd($data);
 				
 				$num = Student::where('user_id', $id)->first()->update($data); //对应的Model应该要开启批量赋值 
 
@@ -77,4 +84,23 @@ class StudentController extends Controller
 			]);
 		
 	}
+	}
+
+    public function selectTeacher() {
+        $tid = Input::get('tid');
+        $sid = Student::where('user_id', Auth::id())->first()->id;
+        
+        $flag = Connect::where('teacher_id', $tid)
+                         ->where('stu_id', $sid)
+                         ->first();
+        if (!$flag) {
+              $connect = new Connect();
+              $connect->stu_id = $sid;
+              $connect->teacher_id = $tid;
+              $connect->approve = 0;
+              $connect->save();
+        }
+            
+        return view('admin/student/home')->with('message', '成功选择!');
+    }
 }
