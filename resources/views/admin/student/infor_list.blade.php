@@ -27,7 +27,7 @@
                        <div class="am-g">
                         <div class="am-u-sm-12">
                             <form class="am-form">
-                                <table class="am-table am-table-striped am-table-hover table-main">
+                                <table class="am-table am-table-striped  am-table-hover table-main ">
                                     <thead>
                                         <tr>
                                             <th class="table-title">姓名</th>
@@ -41,21 +41,18 @@
                                             <td class="am-hide-sm-only">{{$teacher->telephone}}</td>
                                             <td>
                                                 <div class="am-btn-toolbar">
-                                                    <div class="am-btn-group am-btn-group-xs">
-                                                        <form action="/admin/student/selectTeacher" method="POST">
-                                                        {{ csrf_field() }}
+                                                    <form action="/admin/student/selectTeacher" method="POST">
+                                                    {{ csrf_field() }}
                                                         <input type="hidden" name="tid" value="{{$teacher->id}}" />
                                                         <button type="submit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span>选择</button>
-                                                        </form> 
-                                                    </div>
+                                                    </form> 
                                                 </div>
                                             </td>
                                         </tr>
-                                        @endforeach
+                                   @endforeach
                                     </tbody>
                                 </table>
                                 <div class="am-cf">
-
                                     <div class="am-fr">
                                         <ul class="am-pagination tpl-pagination">
                                             <li class="am-disabled"><a href="#">«</a></li>
@@ -69,20 +66,13 @@
                                     </div>
                                 </div>
                                 <hr>
-
                             </form>
                         </div>
-
                     </div>
                 </div>
                 <div class="tpl-alert"></div>
             </div>
-
-
-
         </div>
-
     </div>
-
 </body>
 @endsection

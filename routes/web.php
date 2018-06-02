@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin'
 	Route::get('/student/form_line','StudentController@show_form2');
 	Route::get('/student/infor_list','StudentController@show_list');
 	Route::post('/student/selectTeacher','StudentController@selectTeacher');
-
+    Route::resource('student/papers', 'UploadController'); 
 });
 
 Route::get('student', 'Admin\StudentController@index');

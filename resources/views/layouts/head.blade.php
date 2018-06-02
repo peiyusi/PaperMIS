@@ -88,11 +88,17 @@
                     </li>
 
                     <li class="tpl-left-nav-item">
-						<a href="{{ url('admin/student/infor_list') }}" class="nav-link tpl-left-nav-link-list"
-						{{ Request::getPathInfo() == '/admin/student/infor_list' ? 'active' : ''}}
-						>
+                        <a href="{{ url('admin/student/papers') }}" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-wpforms"></i>
-                            <span>表单</span>
+                            <span>上传论文</span>
+
+                        </a>
+			        </li>
+
+                    <li class="tpl-left-nav-item">
+                        <a href="{{ url('admin/student/infor_list') }}" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-wpforms"></i>
+                            <span>选择老师</span>
 
                         </a>
 			        </li>
