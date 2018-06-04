@@ -1,4 +1,4 @@
-@extends('layouts.head')
+@extends('layouts.heads')
 @section('action')
 
 <body data-type="generalComponents">
@@ -6,11 +6,7 @@
             <div class="tpl-content-page-title">
                 论文审核 
             </div>
-            <ol class="am-breadcrumb">
-                <li><a href="#" class="am-icon-home">首页</a></li>
-                <li><a href="#">Amaze UI CSS</a></li>
-                <li class="am-active">文字列表</li>
-            </ol>
+           <hr>
             <div class="tpl-portlet-components">
                 <div class="portlet-title">
                     <div class="caption font-green bold">
@@ -52,7 +48,11 @@
                                                         <form action="/admin/teacher/paperJudge" method="POST">
                                                         {{ csrf_field() }}
                                                             <input type="hidden" name="sid" value="{{$student->id}}" />
+                                                            @if ($student->pivot->approve == 1)
                                                             <button type="submit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span>通过</button>
+                                                            @else
+                                                            <button type="submit" class="am-btn am-btn-danger am-btn-xs am-text-danger"><span class="am-icon-pencil-square-o"></span>撤销</button>
+                                                            @endif
                                                         </form>
                                                     </div>
                                                 </div>

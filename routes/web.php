@@ -33,8 +33,10 @@ Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin'
 	Route::get('/teacher/infor_list','TeacherController@show_list');
 	Route::any('/student/form_infor',['uses'=>'StudentController@create']);
     Route::post('/teacher/paperJudge', 'TeacherController@paperJudge');
+	Route::get('/teacher/home','TeacherController@index');
    // Route::resource('connect', 'TeacherController');
 	Route::get('/student/form_line','StudentController@show_form2');
+	Route::get('/student/home','StudentController@index');
 	Route::get('/student/infor_list','StudentController@show_list');
 	Route::post('/student/selectTeacher','StudentController@selectTeacher');
     Route::resource('student/papers', 'UploadController'); 

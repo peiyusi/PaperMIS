@@ -18,7 +18,7 @@ class StudentController extends Controller
 
 	public function index() {
 
-		return view('admin.student.form_infor');
+		return view('admin.student.home');
 	}
 
     public function show_form1(){
