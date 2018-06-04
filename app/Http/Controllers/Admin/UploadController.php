@@ -25,20 +25,27 @@ class UploadController extends Controller {
         $sid = Student::where('user_id', Auth::id())->first()->id;
         $filepath = 'papers/'.$sid;
         $filename = Input::file('paper')->getClientOriginalName();
+        $approve = Connect::where('stu_id', $sid)->first()->approve; 
         Storage::putFileAs($filepath , $request->file('paper'), $filename);
 
         Student::where('id', $sid)
                 ->update(['paper' => $filename]);
 
-        return view('admin/student/upload/home')->with('filename', $filename);;
+        return view('admin/student/upload/home')->with('filename', $filename)->with('approve', $approve);
     }
         
     public function create(){
-            $sid = Student::where('user_id', Auth::id())->first()->id;
-            $filepath = '/var/www/PaperMIS/storage/app/papers/'.$sid.'/'.Student::where('id', $sid)->first()->paper; 
-            return response()->download($filepath);
+        $sid = Student::where('user_id', Auth::id())->first()->id;
+        $filepath = '/var/www/PaperMIS/storage/app/papers/'.$sid.'/'.Student::where('id', $sid)->first()->paper; 
+        return response()->download($filepath);
+    }
+    
+    public function teacherDownload() {
+        $sid = Input::get('sid');
+        $filepath = '/var/www/PaperMIS/storage/app/papers/'.$sid.'/'.Student::where('id', $sid)->first()->paper; 
 
-        
+        return response()->download($filepath);
+
     }
 
 }

@@ -15,8 +15,6 @@
                     <div class="tpl-portlet-input tpl-fz-ml">
                         <div class="portlet-input input-small input-inline">
                             <div class="input-icon right">
-                                <i class="am-icon-search"></i>
-                                <input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>
                         </div>
                     </div>
                 </div>
@@ -45,7 +43,18 @@
                                             <td>
                                                 <div class="am-btn-toolbar">
                                                     <div class="am-btn-group am-btn-group-xs">
-                                                        <form action="/admin/teacher/paperJudge" method="POST">
+
+                                                        <form action="/admin/teacher/download" method="post">
+                                                        {{ csrf_field() }}
+                                                            <input type="hidden" name="sid" value="{{$student->id}}" />
+                                                            <button class="am-btn am-btn-success am-btn-xs am-text-success">
+                                                            <i class="am-icon-cloud-download"></i>
+                                                              下载
+                                                            </button>
+                                                            
+                                                        </form>
+
+                                                        <form action="/admin/teacher/paperjudge" method="post">
                                                         {{ csrf_field() }}
                                                             <input type="hidden" name="sid" value="{{$student->id}}" />
                                                             @if ($student->pivot->approve == 1)

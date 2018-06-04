@@ -32,7 +32,9 @@ Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin'
 	Route::get('/teacher/form_line','TeacherController@show_form2');
 	Route::get('/teacher/infor_list','TeacherController@show_list');
     Route::post('/teacher/paperJudge', 'TeacherController@paperJudge');
+    Route::post('teacher/download', 'UploadController@teacherDownload');
 	Route::any('/student/form_infor',['uses'=>'StudentController@create']);
+
 	Route::get('/teacher/home','TeacherController@index');
    // Route::resource('connect', 'TeacherController');
 	Route::get('/student/form_line','StudentController@show_form2');
