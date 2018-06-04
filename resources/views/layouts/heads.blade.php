@@ -57,7 +57,7 @@
 
         <div class="tpl-left-nav tpl-left-nav-hover">
             <div class="tpl-left-nav-title">
-                Amaze UI 列表
+               功能选择 
             </div>
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
@@ -67,13 +67,7 @@
                             <span>首页</span>
                         </a>
                     </li>
-                    <li class="tpl-left-nav-item">
-                        <a href="{{ url('admin/teacher/form_line') }}" class="nav-link tpl-left-nav-link-list">
-                            <i class="am-icon-bar-chart"></i>
-                            <span>数据表</span>
-                        </a>
-                    </li>
-
+                    
                     <li class="tpl-left-nav-item">
                         <a href="{{ url('admin/teacher/form_infor') }}" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-table"></i>
@@ -84,7 +78,7 @@
                     <li class="tpl-left-nav-item">
                         <a href="{{ url('admin/teacher/infor_list') }}" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-wpforms"></i>
-                            <span>表单</span>
+                            <span>论文审核</span>
 
                         </a>
 			        </li>

@@ -82,9 +82,13 @@ class TeacherController extends Controller
         $sid = Input::get('sid');
         
         $tid = Teacher::where('user_id', Auth::id())->first()->id;
-        Connect::where('stu_id', $sid)
-                ->where('teacher_id', $tid)
-                ->update(['approve' => 1]);
+        
+        $connect = Connect::where('stu_id', $sid)
+                ->where('teacher_id', $tid)->first();
+                
+        $connect->approve = !$connect->approve;
+
+        $connect->save();
 
         return view('admin/teacher/home');
     }

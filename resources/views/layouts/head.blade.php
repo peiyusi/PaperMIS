@@ -57,7 +57,7 @@
 
         <div class="tpl-left-nav tpl-left-nav-hover">
             <div class="tpl-left-nav-title">
-                Amaze UI 列表
+               功能选择 
             </div>
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
@@ -69,16 +69,7 @@
                             <span>首页</span>
                         </a>
                     </li>
-                    <li class="tpl-left-nav-item">
-						<a href="{{ url('admin/student/form_line') }}" class="nav-link tpl-left-nav-link-list"
-						{{ Request::getPathInfo() == '/admin/student/form_line' ? 'active' : ''}}
-						>
-                            <i class="am-icon-bar-chart"></i>
-                            <span>数据表</span>
-                        </a>
-                    </li>
-
-                    <li class="tpl-left-nav-item">
+                                        <li class="tpl-left-nav-item">
 						<a href="{{ url('admin/student/form_infor') }}" class="nav-link tpl-left-nav-link-list"
 						{{ Request::getPathInfo() == '/admin/student/form_infor' ? 'active' : ''}}
 						>
@@ -88,11 +79,17 @@
                     </li>
 
                     <li class="tpl-left-nav-item">
-						<a href="{{ url('admin/student/infor_list') }}" class="nav-link tpl-left-nav-link-list"
-						{{ Request::getPathInfo() == '/admin/student/infor_list' ? 'active' : ''}}
-						>
+                        <a href="{{ url('admin/student/papers') }}" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-wpforms"></i>
-                            <span>表单</span>
+                            <span>上传论文</span>
+
+                        </a>
+			        </li>
+
+                    <li class="tpl-left-nav-item">
+                        <a href="{{ url('admin/student/infor_list') }}" class="nav-link tpl-left-nav-link-list">
+                            <i class="am-icon-wpforms"></i>
+                            <span>选择老师</span>
 
                         </a>
 			        </li>

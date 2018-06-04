@@ -6,11 +6,7 @@
             <div class="tpl-content-page-title">
                 选择老师
             </div>
-            <ol class="am-breadcrumb">
-                <li><a href="#" class="am-icon-home">首页</a></li>
-                <li><a href="#">Amaze UI CSS</a></li>
-                <li class="am-active">文字列表</li>
-            </ol>
+           <hr> 
             <div class="tpl-portlet-components">
                 <div class="portlet-title">
                     <div class="caption font-green bold">
@@ -23,8 +19,7 @@
                 </div>
                        <div class="am-g">
                         <div class="am-u-sm-12">
-                            <form class="am-form">
-                                <table class="am-table am-table-striped am-table-hover table-main">
+                                <table class="am-table am-table-striped  am-table-hover table-main ">
                                     <thead>
                                         <tr>
                                             <th class="table-title">姓名</th>
@@ -38,21 +33,30 @@
                                             <td class="am-hide-sm-only">{{ $teacher->telephone }}</td>
                                             <td>
                                                 <div class="am-btn-toolbar">
-                                                    <div class="am-btn-group am-btn-group-xs">
-                                                        <form action="" method="POST">
-															 {{ csrf_field() }}
-															<input type="hidden" name="tid" value="{{ $teacher->id }}" />
-															<button type="submit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span>选择</button>
-                                                        </form> 
-                                                    </div>
+                                                    <form action="/admin/student/selectTeacher" method="POST">
+                                                    {{ csrf_field() }}
+                                                        <input type="hidden" name="tid" value="{{$teacher->id}}" />
+                                                        @if (count($selects) != 0)
+                                                         @foreach ($selects as $select)
+                                                             @if ($teacher->id == $select->pivot->teacher_id)
+                                                              <button type="submit" class="am-btn am-btn-danger am-btn-xs am-text-danger"><span class="am-icon-pencil-square-o"></span>撤销</button>
+                                                                 @break
+                                                             @endif
+                                                             @if ($loop->remaining == 0)
+                                                              <button type="submit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span>选择</button>
+                                                             @endif
+                                                         @endforeach
+                                                        @else
+                                                         <button type="submit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span>选择</button>
+                                                        @endif
+                                                    </form> 
                                                 </div>
                                             </td>
                                         </tr>
-                                        @endforeach
+                                   @endforeach
                                     </tbody>
                                 </table>
                                 <div class="am-cf">
-
                                     <div class="am-fr">
                                         <ul class="am-pagination tpl-pagination">
                                             <li class="am-disabled"><a href="#">«</a></li>
@@ -66,20 +70,12 @@
                                     </div>
                                 </div>
                                 <hr>
-
-                            </form>
                         </div>
-
                     </div>
                 </div>
                 <div class="tpl-alert"></div>
             </div>
-
-
-
         </div>
-
     </div>
-
 </body>
 @endsection

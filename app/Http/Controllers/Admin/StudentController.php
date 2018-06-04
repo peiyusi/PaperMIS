@@ -37,7 +37,9 @@ class StudentController extends Controller
 	}
 
 	public function show_list(){
-		return view('admin/student/infor_list')->withTeachers(Teacher::all());
+        $student =  Student::where('user_id', Auth::id())->first();
+
+		return view('admin/student/infor_list')->withTeachers(Teacher::all())->withSelects($student->teachers);
 	}
 	
 	//添加信息到数据库的学生表中
@@ -86,19 +88,22 @@ class StudentController extends Controller
 
     public function selectTeacher(Request $request) {
 		
-			$tid = Input::get('tid');
-			$sid = Student::where('user_id', Auth::id())->first()->id;
-        
-			$flag = Connect::where('teacher_id', $tid)
-                         ->where('stu_id', $sid)
-                         ->first();
-			if (!$flag) {
-				$connect = new Connect();
-				$connect->stu_id = $sid;
-				$connect->teacher_id = $tid;
-				$connect->approve = 0;
-				$connect->save();
-			}
+		$tid = Input::get('tid');
+		$sid = Student::where('user_id', Auth::id())->first()->id;
+     	$flag = Connect::where('teacher_id', $tid)
+	                ->where('stu_id', $sid)
+                    ->first();
+        if (!$flag) {
+              $connect = new Connect();
+              $connect->stu_id = $sid;
+              $connect->teacher_id = $tid;
+              $connect->approve = 0;
+              $connect->save();
+        } else {
+            $flag->delete();
+        }
+         
+            
         return view('admin/student/home')->with('message', '成功选择!');
     }
 }
