@@ -6,11 +6,7 @@
             <div class="tpl-content-page-title">
                 选择老师
             </div>
-            <ol class="am-breadcrumb">
-                <li><a href="#" class="am-icon-home">首页</a></li>
-                <li><a href="#">Amaze UI CSS</a></li>
-                <li class="am-active">文字列表</li>
-            </ol>
+           <hr> 
             <div class="tpl-portlet-components">
                 <div class="portlet-title">
                     <div class="caption font-green bold">
@@ -43,7 +39,19 @@
                                                     <form action="/admin/student/selectTeacher" method="POST">
                                                     {{ csrf_field() }}
                                                         <input type="hidden" name="tid" value="{{$teacher->id}}" />
-                                                        <button type="submit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span>选择</button>
+                                                        @if (count($selects) != 0)
+                                                         @foreach ($selects as $select)
+                                                             @if ($teacher->id == $select->pivot->teacher_id)
+                                                              <button type="submit" class="am-btn am-btn-danger am-btn-xs am-text-danger"><span class="am-icon-pencil-square-o"></span>撤销</button>
+                                                                 @break
+                                                             @endif
+                                                             @if ($loop->remaining == 0)
+                                                              <button type="submit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span>选择</button>
+                                                             @endif
+                                                         @endforeach
+                                                        @else
+                                                         <button type="submit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span>选择</button>
+                                                        @endif
                                                     </form> 
                                                 </div>
                                             </td>

@@ -37,7 +37,9 @@ class StudentController extends Controller
 	}
 
 	public function show_list(){
-		return view('admin/student/infor_list')->withTeachers(Teacher::all());
+        $student =  Student::where('user_id', Auth::id())->first();
+
+		return view('admin/student/infor_list')->withTeachers(Teacher::all())->withSelects($student->teachers);
 	}
 	
 	//添加信息到数据库的学生表中
@@ -97,7 +99,10 @@ class StudentController extends Controller
               $connect->teacher_id = $tid;
               $connect->approve = 0;
               $connect->save();
+        } else {
+            $flag->delete();
         }
+         
             
         return view('admin/student/home')->with('message', '成功选择!');
     }
