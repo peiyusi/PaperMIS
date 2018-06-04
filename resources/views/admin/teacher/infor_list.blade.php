@@ -49,9 +49,9 @@
                                                         {{ csrf_field() }}
                                                             <input type="hidden" name="sid" value="{{$student->id}}" />
                                                             @if ($student->pivot->approve == 1)
-                                                            <button type="submit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span>通过</button>
-                                                            @else
                                                             <button type="submit" class="am-btn am-btn-danger am-btn-xs am-text-danger"><span class="am-icon-pencil-square-o"></span>撤销</button>
+                                                            @else
+                                                            <button type="submit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span>通过</button>
                                                             @endif
                                                         </form>
                                                     </div>
