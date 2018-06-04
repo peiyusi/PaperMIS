@@ -81,7 +81,7 @@
                     <li class="tpl-left-nav-item">
                         <a href="{{ url('admin/student/papers') }}" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-wpforms"></i>
-                            <span>上传论文</span>
+                            <span>论文管理</span>
 
                         </a>
 			        </li>

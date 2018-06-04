@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use App\Model\Student;
+use App\Model\Connect;
 
 class UploadController extends Controller {
 
@@ -15,8 +16,9 @@ class UploadController extends Controller {
 
         $sid = Student::where('user_id', Auth::id())->first()->id;
         $filename = Student::where('id', $sid)->first()->paper; 
+        $approve = Connect::where('stu_id', $sid)->first()->approve; 
          
-        return view('admin/student/upload/home')->with('filename', $filename);
+        return view('admin/student/upload/home')->with('filename', $filename)->with('approve', $approve);
     }
 
     public function store(Request $request) {

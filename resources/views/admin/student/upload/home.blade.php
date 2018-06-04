@@ -22,6 +22,11 @@
             <section class="am-panel am-panel-default">
               <header class="am-panel-hd">
                 <h3 class="am-panel-title">我的论文</h3>
+                @if ($approve == 1) 
+                <h4><span class="am-icon-check-square-o"></span> 通过</h4>
+                @else
+                <h4><span class="am-icon-paper-plane-o"></span> 审核</h4>
+                @endif
               </header>
               <div class="am-panel-bd">
               {{$filename}}
