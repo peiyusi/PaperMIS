@@ -31,17 +31,17 @@ Route::group(['middleware' => 'auth','namespace' => 'Admin' ,'prefix' => 'admin'
 	Route::any('/teacher/form_infor',['uses'=>'TeacherController@save']);
 	Route::get('/teacher/form_line','TeacherController@show_form2');
 	Route::get('/teacher/infor_list','TeacherController@show_list');
-	Route::any('/student/form_infor',['uses'=>'StudentController@create']);
     Route::post('/teacher/paperJudge', 'TeacherController@paperJudge');
+	Route::any('/student/form_infor',['uses'=>'StudentController@create']);
    // Route::resource('connect', 'TeacherController');
 	Route::get('/student/form_line','StudentController@show_form2');
 	Route::get('/student/infor_list','StudentController@show_list');
-	Route::post('/student/selectTeacher','StudentController@selectTeacher');
+	Route::any('/student/selectTeacher',['uses'=>'StudentController@selectTeacher']);
 
 });
 
-Route::get('student', 'Admin\StudentController@index');
-Route::get('teacher', 'Admin\TeacherController@index');
+Route::get('student/home', 'Admin\StudentController@index');
+Route::get('teacher/home', 'Admin\TeacherController@index');
 Route::any('teacher/save', ['uses' => 'Admin\TeacherController@save']);
 
 /*

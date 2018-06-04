@@ -15,10 +15,18 @@ class TeacherController extends Controller
 {
 
 	public function index() {
-		return view('admin.teacher.form_infor');
+		return view('admin.teacher.home');
 	}
 	public function show_form1(){
-		return view('admin/teacher/form_infor');
+		$id = Auth::id();
+		
+		$teacher = Teacher::where('user_id', $id)->first();
+		$user = User::find($id);
+		
+		return view('admin/teacher/form_infor', [
+			'teacher' => $teacher,
+			'user' => $user
+		])->with('uid', $id);
 	}
 
 	public function show_form2(){

@@ -18,9 +18,6 @@
                     </div>
                     <div class="tpl-portlet-input tpl-fz-ml">
                         <div class="portlet-input input-small input-inline">
-                            <div class="input-icon right">
-                                <i class="am-icon-search"></i>
-                                <input type="text" class="form-control form-control-solid" placeholder="搜索..."> </div>
                         </div>
                     </div>
                 </div>
@@ -37,15 +34,15 @@
                                     <tbody>
                                     @foreach ($teachers as $teacher)
                                         <tr>
-                                            <td>{{$teacher->name}}</td>
-                                            <td class="am-hide-sm-only">{{$teacher->telephone}}</td>
+                                            <td>{{ $teacher->name }}</td>
+                                            <td class="am-hide-sm-only">{{ $teacher->telephone }}</td>
                                             <td>
                                                 <div class="am-btn-toolbar">
                                                     <div class="am-btn-group am-btn-group-xs">
-                                                        <form action="/admin/student/selectTeacher" method="POST">
-                                                        {{ csrf_field() }}
-                                                        <input type="hidden" name="tid" value="{{$teacher->id}}" />
-                                                        <button type="submit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span>选择</button>
+                                                        <form action="" method="POST">
+															 {{ csrf_field() }}
+															<input type="hidden" name="tid" value="{{ $teacher->id }}" />
+															<button type="submit" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span>选择</button>
                                                         </form> 
                                                     </div>
                                                 </div>

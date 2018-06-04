@@ -19,7 +19,7 @@
 
 <header class="am-topbar am-topbar-inverse admin-header">
         <div class="am-topbar-brand">
-            <a href="{{ url('javascript:;')}}" class="tpl-logo">
+            <a href="{{ url('student/home') }}" class="tpl-logo">
                 <img src="{{ asset('assets/img/logo.png')}}" alt="">
             </a>
         </div>
@@ -62,8 +62,8 @@
             <div class="tpl-left-nav-list">
                 <ul class="tpl-left-nav-menu">
                     <li class="tpl-left-nav-item">
-						<a href="{{ url('admin/student/home') }}" class="nav-link active"
-						{{ Request::getPathInfo() == '/admin/student/home' ? 'active' : ''}}	
+						<a href="{{ url('student/home') }}" class="nav-link active"
+						{{ Request::getPathInfo() == 'student/home' ? 'active' : ''}}	
 						>
                             <i class="am-icon-home"></i>
                             <span>首页</span>
