@@ -54,7 +54,7 @@
                                                             
                                                         </form>
 
-                                                        <form action="/admin/teacher/paperjudge" method="post">
+                                                        <form action="/admin/teacher/paperJudge" method="post">
                                                         {{ csrf_field() }}
                                                             <input type="hidden" name="sid" value="{{$student->id}}" />
                                                             @if ($student->pivot->approve == 1)

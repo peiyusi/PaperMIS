@@ -1,7 +1,6 @@
 @extends('layouts.heads')
 
 @section('action')
-<!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
