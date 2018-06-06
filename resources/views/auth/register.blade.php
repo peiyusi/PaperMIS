@@ -11,7 +11,7 @@
 					<form method="POST" action="{{ route('register') }}">
 						@csrf
 
-					<!--	<div class="form-group row">
+					<!--			<div class="form-group row">
 							<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('昵称') }}</label>
 
 							<div class="col-md-6">
@@ -24,7 +24,7 @@
 								@endif
 							</div>
 						</div>
-						-->			
+				-->			
 						<div class="form-group row">
 							<label for="email" class="col-md-4 col-form-label text-md-right">{{ __('邮箱地址') }}</label>
 
@@ -59,7 +59,7 @@
 								<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
 							</div>
 						</div>
-						
+
 						<label for="identy" class="col-md-4 col-form-label text-md-right">
 							 <input type="radio" name="identy" id="optionsRadios1" value="1" checked>
 								{{	__('学生')}}
@@ -68,7 +68,23 @@
 								<input type="radio" name="identy" id="optionsRadios2" value="0">
 									{{	__('老师')}}
 						</label>
+						<div class="form-group row">
+							<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('验证码') }}</label>
 
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="captcha" required >
+							</div>
+						</div>
+
+							<div class="form-group row">
+                              <label class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
+                              
+                              <div class="col-md-6">
+							  <img src="{{url('register/captcha/1')}}" alt="验证码" title="刷新图片" width="150" height="50" onclick="this.src='{{url('register/captcha/1')}}?'+Math.random()">
+								</div>
+                          </div>
+
+			
 						<div class="form-group row mb-0">
 							<div class="col-md-6 offset-md-4">
 								<button type="submit" class="btn btn-primary">

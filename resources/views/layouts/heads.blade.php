@@ -45,9 +45,7 @@
 						<li><a href="{{ url('logout') }}" >
 <span class="am-icon-power-off"></span>{{ __(' 退出') }}</a></li>
                     </ul>
-                </li>
-				<li><a href="{{ route('logout') }}" class="tpl-header-list-link" >
-<span class="am-icon-sign-out tpl-header-list-ico-out-size">{{ __('') }}</span></a></li>
+				</li>
             </ul>
         </div>
     </header>
@@ -86,7 +84,7 @@
                     <li class="tpl-left-nav-item">
                         <a href="{{ route('logout') }}" class="nav-link tpl-left-nav-link-list">
                             <i class="am-icon-key"></i>
-                            <span>退出登录</span>
+                            <span>重新登录</span>
 
                         </a>
                     </li>

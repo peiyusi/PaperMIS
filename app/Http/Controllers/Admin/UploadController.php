@@ -36,13 +36,13 @@ class UploadController extends Controller {
         
     public function create(){
         $sid = Student::where('user_id', Auth::id())->first()->id;
-        $filepath = '/var/www/PaperMIS/storage/app/papers/'.$sid.'/'.Student::where('id', $sid)->first()->paper; 
+        $filepath = '/var/tempone/mane/storage/app/papers/'.$sid.'/'.Student::where('id', $sid)->first()->paper; 
         return response()->download($filepath);
     }
     
     public function teacherDownload() {
         $sid = Input::get('sid');
-        $filepath = '/var/www/PaperMIS/storage/app/papers/'.$sid.'/'.Student::where('id', $sid)->first()->paper; 
+        $filepath = '/var/tempone/mane/storage/app/papers/'.$sid.'/'.Student::where('id', $sid)->first()->paper; 
 
         return response()->download($filepath);
 

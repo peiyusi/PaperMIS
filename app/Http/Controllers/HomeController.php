@@ -31,7 +31,7 @@ class HomeController extends Controller
 		$this->uid = $request->user()->id; //获取登陆用户的userid
 
 		$identy = $request->user()->identy;//获取登录用户的身份
-		echo $email.'+'.$this->uid.'+'.$identy;
+	//	echo $email.'+'.$this->uid.'+'.$identy;
 
 		if($identy == 1) {
 			$flag = Student::where('user_id', $this->uid)->first(); //$flag判断是否已经在学生表中创建了对应列			
