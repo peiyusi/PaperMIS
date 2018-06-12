@@ -54,7 +54,7 @@
                                                             
                                                         </form>
 
-                                                        <form action="/admin/teacher/paperjudge" method="post">
+                                                        <form action="/admin/teacher/paperJudge" method="post">
                                                         {{ csrf_field() }}
                                                             <input type="hidden" name="sid" value="{{$student->id}}" />
                                                             @if ($student->pivot->approve == 1)
@@ -70,7 +70,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <div class="am-cf">
+                            <!--    <div class="am-cf">
 
                                     <div class="am-fr">
                                         <ul class="am-pagination tpl-pagination">
@@ -83,7 +83,7 @@
                                             <li><a href="#">»</a></li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div>  -->
                                 <hr>
 
                         </div>

@@ -27,8 +27,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($teachers as $teacher)
-                                        <tr>
+									@foreach ($teachers as $teacher)
+										@if($teacher->name == NULL)
+											@else
+										<tr>
                                             <td>{{ $teacher->name }}</td>
                                             <td class="am-hide-sm-only">{{ $teacher->telephone }}</td>
                                             <td>
@@ -52,11 +54,12 @@
                                                     </form> 
                                                 </div>
                                             </td>
-                                        </tr>
+										</tr>
+										@endif
                                    @endforeach
                                     </tbody>
                                 </table>
-                                <div class="am-cf">
+                               <!-- <div class="am-cf">
                                     <div class="am-fr">
                                         <ul class="am-pagination tpl-pagination">
                                             <li class="am-disabled"><a href="#">«</a></li>
@@ -68,7 +71,7 @@
                                             <li><a href="#">»</a></li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> -->
                                 <hr>
                         </div>
                     </div>

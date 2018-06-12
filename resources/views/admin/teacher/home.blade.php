@@ -1,7 +1,7 @@
 @extends('layouts.heads')
 
 @section('action')
-       <style>
+       <style>           
             .full-height {
                 height: 100vh;
             }   
